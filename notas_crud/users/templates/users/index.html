@@ -1,0 +1,16 @@
+{% extends "base2.html" %}
+
+{% block content %}
+  <h2>Lista de Usuários</h2>
+  <ul>
+    {% for usuario in usuarios %}
+      <li>
+        {{ usuario.username }} - {{ usuario.get_user_type_display }}
+        <a href="{% url 'users:update_user' usuario.id %}">Atualizar</a>
+        <a href="{% url 'users:delete_user' usuario.id %}">Apagar</a>
+      </li>
+    {% empty %}
+      <li>Nenhum usuário cadastrado.</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

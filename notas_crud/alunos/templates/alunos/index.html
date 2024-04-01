@@ -1,0 +1,96 @@
+{% include "base2.html" %}
+<a href="{% url 'alunos:create' %}" class="btn btn-primary">Adicionar Aluno</a>
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #333;
+    }
+
+    h1 {
+        font-size: 24px;
+        color: #000;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid #666;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #007bff;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>
+<script>
+    $(window).resize(function() {
+        if ($(window).width() < 600) {
+            // Código para executar quando a largura da janela é menor que 600px
+            console.log("A largura da janela é menor que 600px.");
+        } else {
+            // Código para executar quando a largura da janela é maior que 600px
+            console.log("A largura da janela é maior que 600px.");
+        }
+    });
+</script>
+
+<h1>Lista de Alunos</h1>
+<table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Data de nascimento</th>
+        <th>BI Nº</th>
+        <th>Telefone</th>
+        <th>Email</th>
+        <th>Responsável</th>
+        <th>Telf. Responsável</th>
+        <th>Email do Responsável</th>
+        <th>Ações</th> <!-- Adicionado cabeçalho para ações -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for aluno in alunos %}
+        <tr>
+          <td>{{ aluno.nome }}</td>
+          <td>{{ aluno.data_de_nascimento }}</td>
+          <td>{{ aluno.BI_No }}</td>
+          <td>{{ aluno.telefone }}</td>
+          <td>{{ aluno.email }}</td>
+          <td>{{ aluno.responsavel }}</td>
+          <td>{{ aluno.telef_responsavel }}</td>
+          <td>{{ aluno.email_responsavel }}</td>
+          <td> <!-- Adicionado célula para ações -->
+            <a href="{% url 'alunos:update' aluno.id %}">Atualizar</a>  <!-- Link para atualizar o aluno -->
+            <a href="{% url 'alunos:delete' aluno.id %}">Apagar</a> <!-- Link para apagar o aluno -->
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="9">Nenhum aluno encontrado.</td> <!-- Atualizado para 9 colunas -->
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

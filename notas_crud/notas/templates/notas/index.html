@@ -1,0 +1,70 @@
+{% include "base2.html" %}
+<a href="{% url 'notas:create' %}" class="btn btn-primary">Adicionar Nota</a>
+{% block content %}
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: left;
+    }
+    $(window).resize(function() {
+        if ($(window).width() < 600) {
+            // Código para executar quando a largura da janela é menor que 600px
+            console.log("A largura da janela é menor que 600px.");
+        } else {
+            // Código para executar quando a largura da janela é maior que 600px
+            console.log("A largura da janela é maior que 600px.");
+        }
+    });
+    td {
+        word-wrap: break-word;
+    }
+    
+    
+    </style>
+  <h1>Notas</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Aluno</th>
+        <th>Disciplina</th>
+        <th>Trimestre</th>
+        <th>Turma</th>
+        <th>MAC</th>
+        <th>NP</th>
+        <th>NT</th>
+        <th>MT1</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for Nota in notas %}
+        <tr>
+          <td>{{ Nota.id }}</td>
+          <td>{{ Nota.aluno }}</td>
+          <td>{{ Nota.disciplina }}</td>
+          <td>{{ Nota.trimestre }}</td>
+          <td>{{ Nota.turma }}</td>
+          <td>{{ Nota.mac }}</td>
+          <td>{{ Nota.np }}</td>
+          <td>{{ Nota.nt }}</td>
+          <td>{{ Nota.media }}</td>
+          <td> <!-- Adicionado célula para ações -->
+            <a href="{% url 'notas:update' Nota.id %}">Atualizar</a>  <!-- Link para atualizar o aluno -->
+            <a href="{% url 'notas:delete' Nota.id %}">Apagar</a> <!-- Link para apagar o aluno -->
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="9">Nenhum aluno encontrado.</td> <!-- Atualizado para 9 colunas -->
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

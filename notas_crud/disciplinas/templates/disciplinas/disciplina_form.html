@@ -1,0 +1,68 @@
+{% include "base2.html" %}
+<!DOCTYPE html>
+{% block content %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Criar Disciplinas</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+            }
+            .container {
+                width: 80%;
+                margin: auto;
+                padding: 20px;
+            }
+            h1 {
+                color: #333;
+                background-color: #;
+                text-align: ;
+            }
+            form {
+                margin-top: 20px;
+            }
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 10px 0;
+                border: none;
+                border-radius: 5px;
+                text-decoration: none;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+                background-color: #4CAF50;
+                color: white;
+            }
+            .button:hover {
+                background-color: #45a049;
+            }
+            .button.cancel {
+                background-color: #f44336;
+            }
+            .button.cancel:hover {
+                background-color: #d32f2f;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>Cadastrar Disciplina</h1>
+            <form method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="button" value="Salvar">
+                <input type="button" class="button cancel" onclick="location.href='{% url 'disciplinas:index' %}'" value="Cancelar">
+            </form>
+        </div>
+    </body>
+   
+</html>
+{% endblock %}

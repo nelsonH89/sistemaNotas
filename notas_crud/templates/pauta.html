@@ -1,0 +1,43 @@
+{% include "base2.html" %}
+<!DOCTYPE html>
+
+{% block content %}
+<html>
+<head>
+    <title>Notas do Trimestre</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h2>Notas do Trimestre</h2>
+    <table>
+        <tr>
+            <th>Nome do Aluno</th>
+            <th>Disciplina 1</th>
+            <th>Disciplina 2</th>
+            <th>Disciplina 3</th>
+            <th>Situação</th>
+        </tr>
+        <tr>
+            <td>Aluno 1</td>
+            <td>Nota</td>
+            <td>Nota</td>
+            <td>Nota</td>
+            <td>Situação</td>
+        </tr>
+        <tr>
+            <td>Aluno 2</td>
+            <td>Nota</td>
+            <td>Nota</td>
+            <td>Nota</td>
+            <td>Situação</td>
+        </tr>
+        <!-- Adicione mais linhas conforme necessário -->
+    </table>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base2.html" %}
+
+{% block content %}
+  <h2>Apagar Usuário</h2>
+  <form method="post">
+    {% csrf_token %}
+    <p>Tem certeza de que deseja apagar o usuário {{ user.username }}?</p>
+    <button type="submit">Apagar</button>
+  </form>
+{% endblock content %}

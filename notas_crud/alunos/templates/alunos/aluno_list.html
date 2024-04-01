@@ -1,0 +1,23 @@
+{% include "base2.html" %}
+
+{% block content %}
+{% load static %}
+
+<h1>Lista de alunos</h1>
+<div>
+    <ol>
+    {% for alunos in object_list %}
+    <h2>
+        <li>
+            <span>{{ alunos.nome }} {{ alunos.sobrenome }}-
+            <a href="{% url 'alunos:update' pk=alunos.id %}">Editar</a> -
+            <a href="{% url 'alunos:detail' pk=alunos.id %}">Visualizar</a> -
+            <a href="{% url 'alunos:delete' pk=alunos.id %}">Apagar</a>
+        </span> 
+        </li>
+    </h2>
+    {% endfor %}
+    </ol>
+</div>
+{% endblock %}
+

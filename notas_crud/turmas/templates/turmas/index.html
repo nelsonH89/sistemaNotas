@@ -1,0 +1,63 @@
+{% include "base2.html" %}
+<a href="{% url 'turmas:create' %}" class="btn btn-primary">Nova Turma</a>
+{% block content %}
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: left;
+    }
+    $(window).resize(function() {
+        if ($(window).width() < 600) {
+            // Código para executar quando a largura da janela é menor que 600px
+            console.log("A largura da janela é menor que 600px.");
+        } else {
+            // Código para executar quando a largura da janela é maior que 600px
+            console.log("A largura da janela é maior que 600px.");
+        }
+    });
+    td {
+        word-wrap: break-word;
+    }
+    
+    
+    </style>
+  <h1>Turmas</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Turma</th>
+        <th>Turno</th>
+        <th>Ano Letivo</th>
+        <th>Ações</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for Turma in turmas %}
+        <tr>
+          <td>{{ Turma.id }}</td>
+          <td>{{ Turma.nome }}</td>
+          <td>{{ Turma.turno }}</td>
+          <td>{{ Turma.anoLetivo }}</td>
+          <td> <!-- Adicionado célula para ações -->
+            <a href="{% url 'turmas:update' Turma.id %}">Atualizar</a> -  <!-- Link para atualizar o aluno -->
+            <a href="{% url 'turmas:detail' Turma.id %}">Detalhes</a> - 
+            <a href="{% url 'turmas:delete' Turma.id %}">Apagar</a> <!-- Link para apagar o aluno -->
+          </td>
+          
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="9">Nenhuma turma encontrada.</td> <!-- Atualizado para 9 colunas -->
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

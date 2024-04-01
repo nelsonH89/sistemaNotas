@@ -1,0 +1,43 @@
+{% include 'base2.html' %}
+
+{% block content %}
+	<h1>Lista de alunos</h1>  
+    
+    <table class="table"> 
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data de nascimento</th>
+                <th scope="col">BI Nº</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">email</th>
+                <th scope="col">Responsavel</th>
+                <th scope="col">Telef_Responsavel</th>
+                <th scope="col">Email_Responsavel</th>
+            </tr>
+        </thead> 
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <th scope="row">{{ aluno.id }}</th>
+                <th scope="row">{{ aluno.nome }}</th>
+                <th scope="row">{{ aluno.data_de_nascimento }}</th>
+                <th scope="row">{{ aluno.BI_No }}</th>
+                <th scope="row">{{ aluno.telefone }}</th>
+                <th scope="row">{{ aluno.email }}</th>
+                <th scope="row">{{ aluno.responsavel }}</th>
+                <th scope="row">{{ aluno.telef_responsavel }}</th>
+                <th scope="row">{{ aluno.email_responsavel }}</th>
+
+                <!--<th scope="row">
+                    {% for el in aluno.alunos.all %} 
+                    <img src="{{el.image.url}}" alt="{{el.id}}" class="mx-2" width="50">
+                    {% endfor %}
+                </th> -->
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>  
+{% endblock %}

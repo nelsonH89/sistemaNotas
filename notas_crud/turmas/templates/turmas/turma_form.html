@@ -1,0 +1,62 @@
+{% include "base2.html" %}
+
+<!DOCTYPE html>
+
+{% block content %}
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Criar Turmas</title>
+        <meta name="description" content="Página para criar turmas">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+            }
+            .container {
+                width: 80%;
+                margin: 0 auto;
+            }
+            h1 {
+                color: #333;
+                text-align: center;
+                padding: 20px 0;
+                background-color: #7078E1;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            input[type="submit"], input[type="reset"] {
+                cursor: pointer;
+                padding: 10px;
+                border: none;
+                color: white;
+            }
+            input[type="submit"] {
+                background-color: #4CAF50;
+            }
+            input[type="reset"] {
+                background-color: #f44336;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Cadastrar Turmas</h1>
+            <form method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Salvar">
+                <input type="reset" value="Cancelar" onclick="location.href='{% url 'turmas:index' %}'">
+            </form>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>
+{% endblock %}

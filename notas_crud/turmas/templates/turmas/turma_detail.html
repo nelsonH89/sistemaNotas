@@ -1,0 +1,57 @@
+{% include "base2.html" %}
+<a href="{% url 'turmas:index' %}" class="btn btn-primary">Voltar</a>
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+    h1, h4 {
+        color: #333;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #007bff;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #666;
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+<span><h1>{{ object.nome }}</h1>
+<h4>{{ object.turno }}</h4>
+<h4>{{ object.anoLetivo }}</h4></span>
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for matricula in object.matricula_set.all|dictsort:"aluno.nome" %} <!-- Ordenado por nome do aluno -->
+        <tr>
+          <td>{{ matricula.aluno.id }}</td>
+          <td>{{ matricula.aluno.nome }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

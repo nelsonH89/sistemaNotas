@@ -1,0 +1,53 @@
+{% extends "base2.html" %}
+
+<!DOCTYPE html>
+
+{% block content %}
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Apagar Turma</title>
+        <meta name="description" content="Página para apagar turma">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+            }
+            .container {
+                width: 80%;
+                margin: 0 auto;
+                text-align: center;
+                padding: 20px;
+            }
+            input[type="submit"], input[type="reset"] {
+                cursor: pointer;
+                padding: 10px;
+                border: none;
+                color: white;
+                margin-top: 20px;
+            }
+            input[type="submit"] {
+                background-color: #f44336;
+            }
+            input[type="reset"] {
+                background-color: #4CAF50;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Tem certeza que quer apagar a turma '{{ object.nome}}'?</h2>
+            <form action="." method="post">
+                {% csrf_token %}
+                <input type="submit" value="Sim, tenho!">
+                <input type="reset" onclick="location.href='{% url 'turmas:index'%}'" value="Cancelar">
+            </form>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>
+{% endblock %}

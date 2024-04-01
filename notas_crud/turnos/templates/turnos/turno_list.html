@@ -1,0 +1,64 @@
+{% include "base2.html" %}
+
+<!DOCTYPE html>
+
+{% block content %}
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Lista de Turnos</title>
+        <meta name="description" content="Página para listar turnos">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            
+            input[type="submit"] {
+                cursor: pointer;
+                padding: 10px;
+                border: cisc;
+                color: white;
+                background-color: #4CAF50;
+                margin-top: 20px;
+                border: 2px;
+                solid: #000; 
+
+            }
+            
+            .button {
+                cursor: pointer;
+                padding: 10px;
+                border: none;
+                color: white;
+                border-radius: 5px;
+              }
+              
+              .button-primary {
+                background-color: #4CAF50;
+              }
+              
+              .button-secondary {
+                background-color: #7078E1;
+              }
+              
+              .button-danger {
+                background-color: #FF0000;
+              }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Turnos</h1>
+            <input type="submit" onclick="location.href='{% url 'turnos:create' %}'" value="Novo turno" >
+            <ul>
+                {%for turnos in object_list%}
+                <li>{{ turnos.nome }} - <a href="{% url 'turnos:update' pk=turnos.id %}">Editar</a> -
+                    <a href="{% url 'turnos:detail' pk=turnos.id %}">Visualizar</a> -
+                    <a href="{% url 'turnos:delete' pk=turnos.id %}">Apagar</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>
+{% endblock %}

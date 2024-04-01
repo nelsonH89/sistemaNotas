@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Lista de Períodos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       
+        <h1>Lista de Períodos</h1>
+        <input type="submit" onclick="location.href='{% url 'periodos:create' %}'" value="Inserir novo período">
+            <ul>
+                {%for periodos in object_list%}
+                <li>{{ periodos.nome }} - <a href="{% url 'periodos:update' pk=periodos.id %}">Editar</a> -
+                    <a href="{% url 'periodos:detail' pk=periodos.id %}">Visualizar</a> -
+                    <a href="{% url 'periodos:delete' pk=periodos.id %}">Apagar</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+
+        <script src="" async defer></script>
+    </body>
+</html>

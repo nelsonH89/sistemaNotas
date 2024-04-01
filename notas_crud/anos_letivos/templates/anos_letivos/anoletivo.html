@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% block content %}
+<html>
+<head>
+    <title>Detalhes do Ano Letivo</title>
+</head>
+<body>
+    <h1>{{ ano_letivo.nome }}</h1>
+    <h2>Trimestres:</h2>
+    <ul>
+        {% for trimestre in trimestres %}
+            <li>{{ trimestre.trimestre }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}

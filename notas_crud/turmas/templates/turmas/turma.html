@@ -1,0 +1,8 @@
+{% include "base2.html" %}
+
+<h1>{{ turma.nome }}</h1>
+<ul>
+{% for matricula in alunos %}
+    <li>{{ matricula.aluno.nome }}</li>
+{% endfor %}
+</ul>

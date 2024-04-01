@@ -1,0 +1,47 @@
+{% include "base2.html" %}
+
+<!DOCTYPE html>
+
+{% block content %}
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Lista de Turmas</title>
+        <meta name="description" content="Página para listar turmas">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+           
+            input[type="submit"] {
+                cursor: pointer;
+                padding: 10px;
+                border: none;
+                color: white;
+                background-color: #4CAF50;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Turmas</h1>
+            <input type="submit" onclick="location.href='{% url 'turmas:create' %}'" value="Nova Turma">
+            <ul>
+                {%for turmas in object_list%}
+                <li>{{ turmas.nome }} - <a href="{% url 'turmas:update' pk=turmas.id %}">Editar</a> -
+                    <a href="{% url 'turmas:detail' pk=turmas.id %}">Visualizar</a> -
+                    <a href="{% url 'turmas:delete' pk=turmas.id %}">Apagar</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <h1>{{ turma.nome }}</h1>
+            <ul>
+                {% for matricula in matriculas %}
+                <li>{{ matricula.aluno.nome }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>
+{% endblock %}

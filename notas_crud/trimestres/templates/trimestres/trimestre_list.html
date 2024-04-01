@@ -1,0 +1,40 @@
+{% include "base2.html" %}
+
+<!DOCTYPE html>
+
+{% block content %}
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Lista de Trimestres</title>
+        <meta name="description" content="Página para listar trimestres">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+           
+            input[type="submit"] {
+                cursor: pointer;
+                padding: 10px;
+                border: none;
+                color: white;
+                background-color: #4CAF50;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Trimestres</h1>
+            <input type="submit" onclick="location.href='{% url 'trimestres:create' %}'" value="Novo trimestre">
+            <ul>
+                {%for trimestres in object_list%}
+                <li>{{ trimestres.trimestre }} - <a href="{% url 'trimestres:update' pk=trimestres.id %}">Editar</a> -
+                    <a href="{% url 'trimestres:detail' pk=trimestres.id %}">Visualizar</a> -
+                    <a href="{% url 'trimestres:delete' pk=trimestres.id %}">Apagar</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>
+{% endblock %}

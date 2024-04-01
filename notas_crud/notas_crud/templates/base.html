@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gestão de Notas{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Gestão de Notas</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'notas:list' %}">Listar Notas</a></li>
+                <li><a href="{% url 'adicionar_nota' %}">Adicionar Nota</a></li>
+                <!-- Adicione mais links conforme necessário -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; {{ year }}. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

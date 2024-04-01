@@ -1,0 +1,34 @@
+{% include 'base2.html' %}
+{% load static %}
+{% block content %}
+<h1>Aluno</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Data de nascimento</th>
+            <th scope="col">BI Nº</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">email</th>
+            <th scope="col">Responsavel</th>
+            <th scope="col">Telef_Responsavel</th>
+            <th scope="col">Email_Responsavel</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>{{ aluno.id }}</th>
+            <th>{{ aluno.nome }} {{ aluno.sobrenome }}</th>
+            <th>{{ aluno.data_de_nascimento }}</th>
+            <th>{{ aluno.BI_No }}</th>
+            <th>{{ aluno.telefone }}</th>
+            <th>{{ aluno.email }}</th>
+            <th>{{ aluno.responsavel }}</th>
+            <th>{{ aluno.telef_responsavel }}</th>
+            <th>{{ aluno.email_responsavel }}</th>
+        </tr>
+    </tbody>
+
+</table>
+{% endblock %}

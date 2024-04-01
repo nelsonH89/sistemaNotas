@@ -1,0 +1,82 @@
+{% include "base2.html" %}
+<!DOCTYPE html>
+{% block content %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Visualizar Disciplina</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+            }
+            .container {
+                width: 80%;
+                margin: auto;
+                padding: 20px;
+            }
+            h1 {
+                color: #fff;
+                background-color: #7078E1;
+                padding: 20px;
+                text-align: center;
+            }
+            .details {
+                font-size: 18px;
+                color: #555;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 10px 0;
+                border: none;
+                border-radius: 5px;
+                text-decoration: none;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+                background-color: #4CAF50;
+                color: white;
+            }
+            .button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1> '{{ object.nome }}'</h1>
+            <div class="details">
+                <table>
+                    <tr>
+                        <td><strong>Nome:</strong></td>
+                        <td>{{ object.nome }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Carga Horária:</strong></td>
+                        <td>{{ object.cargaHo }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Professor:</strong></td>
+                        <td>{{ object.professor }}</td>
+                    </tr>
+                </table>
+            </div>
+            <input type="button" class="button" onclick="location.href='{% url 'disciplinas:list' %}'" value="Voltar">
+        </div>
+        <script>
+            document.querySelector('.button').addEventListener('click', function() {
+                alert('Você está voltando para a lista de disciplinas.');
+            });
+        </script>
+    </body>
+</html>
+{% endblock %}

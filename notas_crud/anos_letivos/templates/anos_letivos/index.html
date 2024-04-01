@@ -1,0 +1,63 @@
+{% include "base2.html" %}
+<a href="{% url 'anos_letivos:create' %}" class="btn btn-primary">Adicionar Ano Letivo</a>
+
+{% block content %}
+
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: left;
+    }
+    $(window).resize(function() {
+        if ($(window).width() < 600) {
+            // Código para executar quando a largura da janela é menor que 600px
+            console.log("A largura da janela é menor que 600px.");
+        } else {
+            // Código para executar quando a largura da janela é maior que 600px
+            console.log("A largura da janela é maior que 600px.");
+        }
+    });
+    td {
+        word-wrap: break-word;
+    }
+    </style>
+    <script>
+      $(window).resize(function() {
+          if ($(window).width() < 600) {
+              // Código para executar quando a largura da janela é menor que 600px
+              console.log("A largura da janela é menor que 600px.");
+          } else {
+              // Código para executar quando a largura da janela é maior que 600px
+              console.log("A largura da janela é maior que 600px.");
+          }
+      });
+  </script>
+  <h1>Ano Letivo</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Ano Letivo</th>
+        <th>Criado em</th> <!-- Adicionado cabeçalho para ações -->
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for AnoLetivo in anos_letivos %}
+        <tr>
+          <td>{{ AnoLetivo.nome }}</td>
+          <td>{{ AnoLetivo.data_de_criacao }}</td>
+          <td> <!-- Adicionado célula para ações -->
+            <a href="{% url 'anos_letivos:update' AnoLetivo.id %}">Atualizar</a>  <!-- Link para atualizar o aluno -->
+            <a href="{% url 'anos_letivos:delete' AnoLetivo.id %}">Apagar</a> <!-- Link para apagar o aluno -->
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

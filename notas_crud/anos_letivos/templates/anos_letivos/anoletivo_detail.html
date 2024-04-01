@@ -1,0 +1,88 @@
+{% include "base2.html" %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Visualizar Ano Letivo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+            }
+            .container {
+                width: 80%;
+                margin: auto;
+                padding: 20px;
+            }
+            h1 {
+                color: #333;
+                background-color: #7078E1;
+                text-align: center;
+            }
+            .details {
+                font-size: 18px;
+                color: #555;
+            }
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 10px 0;
+                border: none;
+                border-radius: 5px;
+                text-decoration: none;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+                background-color: #4CAF50;
+                color: white;
+            }
+            .button:hover {
+                background-color: #45a049;
+            }
+            /* Adicionando estilos para a tabela */
+            table {
+                
+                    
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #7078E1;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Ano Letivo '{{ object.nome }}'</h1>
+            <input type="button" class="button" onclick="location.href='{% url 'anos_letivos:list' %}'" value="Voltar">
+            <!-- Substituindo a lista ordenada por uma tabela -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trimestre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for trimestre in trimestres %}
+                    <tr>
+                        <td>{{ trimestre }}</td>
+                    </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,91 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column accordion" id="accordionSidebar">
+            <li class="nav-item my-2 rounded-right">
+                <a class="nav-link" href="{% url 'index-administracao' %}">
+                    <span data-feather="home"></span>
+                    Início
+                </a>
+            </li>
+            <li class="nav-item rounded-right">
+                <a class="nav-link" data-toggle="collapse" href="#collapseAlunos" role="button" aria-expanded="true" aria-controls="collapseAlunos">
+                    <span data-feather="users"></span>
+                    Alunos
+                </a>
+            </li>
+                <div class="collapse pl-4 m-2" id="collapseAlunos" data-parent="#accordionSidebar">
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'aluno-novo' %}">
+                         Cadastrar aluno(a)
+                    </a>
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'alunos-efetivo' %}">
+                         Efetivo alunos
+                    </a>
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'alunos' %}">
+                         Lista alunos
+                    </a>
+                </div>
+            <li class="nav-item rounded-right">
+                <a class="nav-link" data-toggle="collapse" href="#collapseProfessores" role="button" aria-expanded="true" aria-controls="collapseProfessores">
+                    <span data-feather="users"></span>
+                    Professores
+                </a>
+            </li>
+                <div class="collapse pl-4 m-2" id="collapseProfessores" data-parent="#accordionSidebar">
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'professor-novo' %}">
+                         Cadastrar Professor(a)
+                    </a>
+                    <a class="nav-link nav-link-collapse rounded-right" href="{% url 'professores' %}">
+                         Lista Professores
+                    </a>
+                </div>
+            <li class="nav-item rounded-right">
+                <a class="nav-link" href="#">
+                    <span data-feather="file"></span>
+                    Diários
+                </a>
+            </li>
+            <li class="nav-item rounded-right">
+                <a class="nav-link" href="#">
+                    <span data-feather="bar-chart-2"></span>
+                    Notas
+                </a>
+            </li>
+            <li class="nav-item rounded-right">
+                <a class="nav-link" href="#">
+                    <span data-feather="layers"></span>
+                    Turmas
+                </a>
+            </li>
+            <!-- Disciplinas -->
+            <li class="nav-item rounded-right">
+                <a class="nav-link" data-toggle="collapse" href="#collapseDisciplina" role="button" aria-expanded="false" aria-controls="collapseDisciplina">
+                    <span data-feather="server"></span>
+                    Disciplinas
+                </a>
+            </li>
+                <div class="collapse pl-4 m-2" id="collapseDisciplina" data-parent="#accordionSidebar">
+                    <a class="nav-link nav-link-collapse" href="{% url 'disciplina-nova' %}">
+                         Nova Disciplina
+                    </a>
+                    <a class="nav-link nav-link-collapse" href="{% url 'disciplinas' %}">
+                         Lista Disciplinas
+                    </a>
+                </div>
+            <!-- Usuários -->
+            <li class="nav-item rounded-right">
+                <a class="nav-link" data-toggle="collapse" href="#collapseUsuarios" role="button" aria-expanded="false" aria-controls="collapseUsuarios">
+                    <span data-feather="users"></span>
+                    Usuários do Sistema
+                </a>
+            </li>
+                <div class="collapse pl-4 m-2" id="collapseUsuarios" data-parent="#accordionSidebar">
+                    <a class="nav-link nav-link-collapse" href="{% url 'user-new' %}">
+                         Cadastrar usuário
+                    </a>
+                    <a class="nav-link nav-link-collapse" href="{% url 'users' %}">
+                         Lista Usuários
+                    </a>
+                </div>
+        </ul>
+    </div>
+</nav>

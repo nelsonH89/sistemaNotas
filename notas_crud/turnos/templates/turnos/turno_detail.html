@@ -1,0 +1,59 @@
+{% include "base2.html" %}
+
+<!DOCTYPE html>
+
+{% block content %}
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Visualizar Turno</title>
+        <meta name="description" content="Página para visualizar detalhes do turno">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+            }
+            h1 {
+                color: #333;
+                background-color: #7078E1;
+                text-align: center;
+            }
+            .container {
+                width: 80%;
+                margin: 0 auto;
+                text-align: auto;
+                padding: 20px;
+            }
+           
+            p {
+                background-color: #fff;
+                margin: 10px 0;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            input[type="submit"] {
+                cursor: pointer;
+                padding: 10px;
+                border: none;
+                color: white;
+                background-color: #4CAF50;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1> Turno '{{ object.nome }}'</h1>
+            <input type="submit" onclick="location.href='{% url 'turnos:index' %}'" value="Voltar"><br />
+            <p>Turno: {{ object.nome }}</p>
+            <p>Entrada: {{ object.entrada}}</p>
+            <p>Saída: {{ object.saida}}</p>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>
+{% endblock %}

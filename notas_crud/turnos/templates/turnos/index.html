@@ -1,0 +1,58 @@
+{% include "base2.html" %}
+<a href="{% url 'alunos:create' %}" class="btn btn-primary">Adicionar Aluno</a>
+{% block content %}
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: left;
+    }
+    $(window).resize(function() {
+        if ($(window).width() < 600) {
+            // Código para executar quando a largura da janela é menor que 600px
+            console.log("A largura da janela é menor que 600px.");
+        } else {
+            // Código para executar quando a largura da janela é maior que 600px
+            console.log("A largura da janela é maior que 600px.");
+        }
+    });
+    td {
+        word-wrap: break-word;
+    }
+    
+    
+    </style>
+  <h1>Turnos</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Turno</th>
+        <th>Entrada</th>
+        <th>Saida</th>
+        <th>Ações</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for Turno in turnos %}
+        <tr>
+          <td>{{ Turno.id }}</td>
+          <td>{{ Turno.nome }}</td>
+          <td>{{ Turno.entrada }}</td>
+          <td>{{ Turno.saida }}</td>
+          <td> <!-- Adicionado célula para ações -->
+            <a href="{% url 'turnos:update' Turno.id %}">Atualizar</a> -   <!-- Link para atualizar o aluno -->
+            <a href="{% url 'turnos:detail' Turno.id %}">Detalhes</a> -   <!-- Link para ver detalhes do turno -->
+            <a href="{% url 'turnos:delete' Turno.id %}">Apagar</a> <!-- Link para apagar o aluno -->
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
